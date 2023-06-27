@@ -1,0 +1,7 @@
+{
+  "name": "watermanagement",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
