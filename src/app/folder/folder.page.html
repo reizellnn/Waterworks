@@ -6,12 +6,16 @@
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
         <ion-title>{{ folder }}</ion-title>
-        <ion-button slot="end" routerLink="/login">Logout</ion-button>
+        <ion-router-link slot="end" routerLink="/login">Logout</ion-router-link>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
     <ng-container *ngIf="folder === 'home'">
         <app-home></app-home>
+    </ng-container>
+
+    <ng-container *ngIf="folder === 'accounts'">
+        <app-accounts></app-accounts>
     </ng-container>
 </ion-content>

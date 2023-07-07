@@ -35,9 +35,10 @@
         <div class="latest__transactions">
             <div
                 *ngFor="let transaction of transactions.reverse()"
-                class="latest__transaction"
-                [ngClass]="{'failed-transaction': transaction.failed}">
-                <h5>{{ transaction.title }}</h5>
+                class="latest__transaction">
+                <h5 [ngClass]="{'failed-transaction': transaction.failed}">
+                    {{ transaction.title }}
+                </h5>
                 <div class="amount">
                     <h6>{{ transaction.date }}</h6>
                     <p>&#8369; {{ transaction.amount }}</p>

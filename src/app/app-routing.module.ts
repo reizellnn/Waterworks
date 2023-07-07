@@ -19,11 +19,14 @@ const routes: Routes = [
         loadChildren: () =>
             import('./login/login.module').then((m) => m.LoginPageModule),
     },
-    {
-        path: 'signup',
-        loadChildren: () =>
-            import('./signup/signup.module').then((m) => m.SignupPageModule),
-    },
+  {
+    path: 'signup',
+    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
+  },
+  {
+    path: 'transaction-list',
+    loadChildren: () => import('./transaction-list/transaction-list.module').then( m => m.TransactionListPageModule)
+  },
 ];
 
 @NgModule({
