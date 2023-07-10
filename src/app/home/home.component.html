@@ -1,49 +1,52 @@
 <!-- @format -->
+<!-- <img src="/assets/icon/blue.png"/>-->
 
-<section class="home__section">
-    <div class="content">
-        <div class="card">
-            <p class="currect__text">Current amount due</p>
-            <h1 class="current__amount">&#8369; 0.00</h1>
-            <div class="other__info">
-                <p class="other__info__text">
-                    Due date:
-                    <br />
-                    <span class="other__info__date">00/00/0000</span>
-                </p>
-                <p class="other__info__text">
-                    Consumption:
-                    <br />
-                    <span class="other__info__date">0.00</span>
-                </p>
+<ion-content class="background-image" no-scroll padding>
+    <section class="home__section">
+        <div class="content">
+            <div class="card">
+                <p class="currect__text">Current amount due</p>
+                <h1 class="current__amount">&#8369; 0.00</h1>
+                <div class="other__info">
+                    <p class="other__info__text">
+                        Due date:
+                        <br />
+                        <span class="other__info__date">00/00/0000</span>
+                    </p>
+                    <p class="other__info__text">
+                        Consumption:
+                        <br />
+                        <span class="other__info__date">0.00</span>
+                    </p>
+                </div>
+                <div class="last__consumption">
+                    <p class="last__consumption__text">
+                        Last consumption
+                        <br />
+                        <span class="last__consumption__date">00/00/0000</span>
+                    </p>
+                    <p class="rate__text">
+                        Rate
+                        <br />
+                        <span class="rate__price">&#8369; 0.00 / cu.m</span>
+                    </p>
+                </div>
             </div>
-            <div class="last__consumption">
-                <p class="last__consumption__text">
-                    Last consumption
-                    <br />
-                    <span class="last__consumption__date">00/00/0000</span>
-                </p>
-                <p class="rate__text">
-                    Rate
-                    <br />
-                    <span class="rate__price">&#8369; 0.00 / cu.m</span>
-                </p>
-            </div>
-        </div>
-        <hr color="dark" />
-        <h3 class="title">Latest Transactions</h3>
-        <div class="latest__transactions">
-            <div
-                *ngFor="let transaction of transactions.reverse()"
-                class="latest__transaction">
-                <h5 [ngClass]="{'failed-transaction': transaction.failed}">
-                    {{ transaction.title }}
-                </h5>
-                <div class="amount">
-                    <h6>{{ transaction.date }}</h6>
-                    <p>&#8369; {{ transaction.amount }}</p>
+            <hr color="dark" />
+            <h3 class="title">Latest Transactions</h3>
+            <div class="latest__transactions">
+                <div
+                    *ngFor="let transaction of transactions.reverse()"
+                    class="latest__transaction">
+                    <h5 [ngClass]="{'failed-transaction': transaction.failed}">
+                        {{ transaction.title }}
+                    </h5>
+                    <div class="amount">
+                        <h6>{{ transaction.date }}</h6>
+                        <p>&#8369; {{ transaction.amount }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</ion-content>
