@@ -1,33 +1,50 @@
 /** @format */
 
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from './services/data.service';
+
 @Component({
-    selector: 'app-root',
-    templateUrl: 'app.component.html',
-    styleUrls: ['app.component.scss'],
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
+  styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-    public appPages = [
-        {title: 'Home', url: '/folder/home', icon: 'home'},
-        {title: 'Accounts', url: '/folder/accounts', icon: 'wallet'},
-        {
-            title: 'Transactions',
-            url: '/folder/transactions',
-            icon: 'swap-horizontal',
-        },
-        {title: 'Bill Records', url: '/folder/bills', icon: 'document-text'},
-        {title: 'Logout', url: '/logout', icon: 'log-out'},
+  public appPages: any[] = [];
+
+  constructor(private router: Router, private dataService: DataService) {}
+
+  user: any = {};
+  ngOnInit() {
+    this.appPages = [
+      { title: 'Home', url: '/folder/home', icon: 'home' },
+      {
+        title: 'Transactions',
+        url: '/folder/transactions',
+        icon: 'swap-horizontal',
+      },
+      { title: 'Bill', url: '/folder/bills', icon: 'document-text' },
     ];
 
-    constructor() {}
+    let userID = localStorage.getItem('userId')?.toString();
 
-    showSidebar(): boolean {
-        if (
-            window.location.pathname == '/login' ||
-            window.location.pathname == '/signup'
-        ) {
-            return false;
-        }
-        return true;
+    if (userID) {
+      this.user = this.dataService.getUserDetails(userID);
     }
+  }
+
+  showSidebar(): boolean {
+    if (
+      window.location.pathname == '/login' ||
+      window.location.pathname == '/signup'
+    ) {
+      return false;
+    }
+    return true;
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

@@ -60,6 +60,11 @@ section.main__container {
                 align-items: center;
                 flex-direction: column;
                 gap: 20px;
+
+                img.gif {
+                    height: 50px;
+                    width: 50px;
+                }
             }
         }
     }

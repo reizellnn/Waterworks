@@ -59,9 +59,13 @@ h3.title {
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 8px;
+  box-shadow: 0.1rem 0.1rem 0.1rem rgba(0, 0, 0, 0.2);
 
   .amount {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
   }
   h5,
   h6,
@@ -76,8 +80,16 @@ h3.title {
     color: var(--ion-color-success);
   }
 
-  h5.failed-transaction {
-    color: var(--ion-color-danger) !important;
+  h5.successful {
+    color: green;
+  }
+
+  h5.failed {
+    color: red;
+  }
+
+  h5.not-paid {
+    color: orange;
   }
 
   h6 {

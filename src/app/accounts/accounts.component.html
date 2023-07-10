@@ -1,6 +1,10 @@
+<!-- @format -->
+
 <ion-list>
-  <ion-item *ngFor="let user of users">
-    <ion-label>{{ user.name }}</ion-label>
-    <ion-button (click)="viewTransactions(user)">View Transactions</ion-button>
-  </ion-item>
+    <ion-item *ngFor="let user of users">
+        <ion-label>{{ user.name }}</ion-label>
+        <ion-button (click)="viewTransactions(user)">
+            View Transactions
+        </ion-button>
+    </ion-item>
 </ion-list>

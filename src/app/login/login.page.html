@@ -2,6 +2,7 @@
 
 <ion-content [fullscreen]="true">
     <section class="main__container">
+        <img src="../../assets/logo.gif" />
         <div class="login__container">
             <form class="login__form">
                 <div class="welcome__container">
@@ -14,6 +15,8 @@
                         label-placement="floating"
                         fill="outline"
                         type="text"
+                        name="username"
+                        [(ngModel)]="username"
                         required></ion-input>
                 </div>
                 <div class="input__container">
@@ -22,6 +25,8 @@
                         label-placement="floating"
                         fill="outline"
                         type="password"
+                        name="password"
+                        [(ngModel)]="password"
                         required></ion-input>
                 </div>
                 <div class="forgot__password">
@@ -33,7 +38,8 @@
                     <ion-button
                         type="submit"
                         expand="full"
-                        class="login__button">
+                        class="login__button"
+                        (click)="login()">
                         Login
                     </ion-button>
                     <ion-router-link routerLink="/signup">

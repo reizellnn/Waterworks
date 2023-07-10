@@ -14,8 +14,18 @@ import { HomeComponent } from '../home/home.component';
 
 import { AccountsComponent } from '../accounts/accounts.component';
 
+import { BillsComponent } from '../bills/bills.component';
+
+import { TransactionsComponent } from '../transactions/transactions.component';
+
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, FolderPageRoutingModule],
-  declarations: [FolderPage, HomeComponent, AccountsComponent],
+  declarations: [
+    FolderPage,
+    HomeComponent,
+    AccountsComponent,
+    BillsComponent,
+    TransactionsComponent,
+  ],
 })
 export class FolderPageModule {}
