@@ -5,6 +5,15 @@ section.main__container {
     height: 100vh;
     position: relative;
 
+    img {
+        width: 28rem;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px;
+        border-radius: 1000px;
+    }
+
     .login__container {
         position: absolute;
         bottom: 0;
@@ -60,11 +69,6 @@ section.main__container {
                 align-items: center;
                 flex-direction: column;
                 gap: 20px;
-
-                img.gif {
-                    height: 50px;
-                    width: 50px;
-                }
             }
         }
     }

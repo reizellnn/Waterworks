@@ -1,7 +1,5 @@
-/** @format */
-
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { DataService } from './services/data.service';
 
 @Component({
@@ -12,24 +10,43 @@ import { DataService } from './services/data.service';
 export class AppComponent {
   public appPages: any[] = [];
 
-  constructor(private router: Router, private dataService: DataService) {}
-
   user: any = {};
+
+  constructor(private router: Router, private dataService: DataService) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.updateAppPages();
+      }
+    });
+  }
+
   ngOnInit() {
-    this.appPages = [
-      { title: 'Home', url: '/folder/home', icon: 'home' },
-      {
-        title: 'Transactions',
-        url: '/folder/transactions',
-        icon: 'swap-horizontal',
-      },
-      { title: 'Bill', url: '/folder/bills', icon: 'document-text' },
-    ];
+    this.updateAppPages();
 
     let userID = localStorage.getItem('userId')?.toString();
 
     if (userID) {
       this.user = this.dataService.getUserDetails(userID);
+    }
+  }
+
+  updateAppPages() {
+    if (localStorage.getItem('userType') === 'staff') {
+      this.appPages = [
+        { title: 'Dashboard', url: '/folder/dashboard', icon: 'analytics' },
+        { title: 'Accounts', url: '/folder/accounts', icon: 'wallet' },
+        { title: 'Set Bill', url: '/folder/set-bill', icon: 'receipt' },
+      ];
+    } else {
+      this.appPages = [
+        { title: 'Home', url: '/folder/home', icon: 'home' },
+        {
+          title: 'Transactions',
+          url: '/folder/transactions',
+          icon: 'swap-horizontal',
+        },
+        { title: 'Bill', url: '/folder/bills', icon: 'document-text' },
+      ];
     }
   }
 

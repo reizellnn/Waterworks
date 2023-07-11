@@ -4,6 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class DataService {
+  public admin: any = [
+    {
+      id: 'admin001',
+      name: 'Ammie Mallada',
+      username: 'ammie',
+      password: 'ammie',
+    },
+  ];
+
   public users: any[] = [
     {
       id: 'WWMS00001',
@@ -51,7 +60,7 @@ export class DataService {
       name: 'Charlene Gale Largado',
       username: 'charlene',
       contact: '+5555555555',
-      password: 'password123',
+      password: 'charlene',
       transactions: [
         {
           title: 'Payment Successful',
@@ -89,10 +98,10 @@ export class DataService {
     },
     {
       id: 'WWMS00003',
-      name: 'Mark Andrew Almarion',
-      username: 'markandrew',
+      name: 'Mark Andrew Almario',
+      username: 'andrew',
       contact: '+9876543210',
-      password: 'mypassword123',
+      password: 'andrew',
       transactions: [
         {
           title: 'Payment Successful',
@@ -163,6 +172,8 @@ export class DataService {
 
   login(email: string, password: string) {
     for (let i = 0; i < this.users.length; i++) {
+      console.log(this.users[i].username);
+
       if (
         this.users[i].username == email &&
         this.users[i].password == password
@@ -172,6 +183,18 @@ export class DataService {
         return true;
       }
     }
+
+    for (let i = 0; i < this.admin.length; i++) {
+      if (
+        this.admin[i].username == email &&
+        this.admin[i].password == password
+      ) {
+        localStorage.setItem('userId', this.admin[i].id);
+        localStorage.setItem('userType', 'staff');
+        return true;
+      }
+    }
+
     return false;
   }
 
