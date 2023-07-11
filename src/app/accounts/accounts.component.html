@@ -1,8 +1,11 @@
 <!-- @format -->
 
 <ion-list>
+    <ion-item>
+        <ion-searchbar (ionInput)="handleInput($event)"></ion-searchbar>
+    </ion-item>
     <ion-item *ngFor="let user of users">
-        <ion-label>{{ user.name }}</ion-label>
+        <ion-label class="account-label">{{ user.name }}</ion-label>
         <ion-button (click)="viewTransactions(user)">
             View Transactions
         </ion-button>

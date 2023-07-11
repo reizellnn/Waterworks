@@ -1,13 +1,20 @@
 /** @format */
 
-.home__section {
+.background-image{
+  --background: url(/assets/icon/blue.png) 0 0/100% 100% no-repeat;
+
+}
+
+.home__section 
+    
   .content {
+    
     padding: 20px;
     .card {
       background: linear-gradient(
         0deg,
-        rgba(101, 39, 190, 1) 35%,
-        rgba(150, 129, 235, 1) 100%
+        rgb(39, 81, 197) 35%,
+        rgb(64, 125, 238) 100%
       );
       padding: 30px 15px;
       border-radius: 10px;
@@ -42,9 +49,10 @@
       }
     }
   }
-}
+
 
 // styles.scss
+
 hr {
   border-color: dark;
 }
