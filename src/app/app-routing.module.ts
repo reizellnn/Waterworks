@@ -27,6 +27,7 @@ const routes: Routes = [
     path: 'transaction-list',
     loadChildren: () => import('./transaction-list/transaction-list.module').then( m => m.TransactionListPageModule)
   },
+
 ];
 
 @NgModule({
