@@ -35,7 +35,7 @@ export class AppComponent {
       this.appPages = [
         { title: 'Dashboard', url: '/folder/dashboard', icon: 'analytics' },
         { title: 'Accounts', url: '/folder/accounts', icon: 'wallet' },
-        { title: 'Set Bill', url: '/folder/set-bill', icon: 'receipt' },
+        { title: 'Set Bill', url: '/folder/set bill', icon: 'receipt' },
       ];
     } else {
       this.appPages = [

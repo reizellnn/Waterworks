@@ -1,9 +1,12 @@
-<ion-header [translucent]="true">
+//add header and footer
+<ion-header>
   <ion-toolbar>
-    <ion-title>transaction-list</ion-title>
-    <ion-button routerLink="/folder/accounts" slot="end"
-      >Return to Accounts</ion-button
-    >
+    <ion-title>Transaction List</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="return()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -21,6 +24,12 @@
         <h6>{{ transaction.date }}</h6>
         <p>&#8369; {{ transaction.amount }}</p>
       </div>
+      <ion-button
+        *ngIf="transaction.title !== 'Payment Successful'"
+        (click)="confirmPayment(transaction)"
+      >
+        Confirm Payment
+      </ion-button>
     </div>
   </div>
 </ion-content>

@@ -1,3 +1,75 @@
-<p>
-  set-bill works!
-</p>
+<div class="container">
+  <ion-list>
+    <ion-item>
+      <ion-select
+        label="Select User"
+        placeholder="Select User"
+        label-placement="stacked"
+        [(ngModel)]="userID"
+        name="userID"
+        required
+      >
+        <ng-container *ngFor="let user of userSelection">
+          <ion-select-option [value]="user.id">
+            {{ user.name }}
+          </ion-select-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-datetime
+        label="Select Date"
+        label-placement="stacked"
+        displayFormat="DD/MM/YYYY"
+        placeholder="Select Date"
+        [(ngModel)]="selectedDate"
+        (ionChange)="onDateChange($event)"
+        name="selectedDate"
+        required
+      >
+      </ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Rate"
+        label-placement="stacked"
+        type="number"
+        placeholder="Rate Value"
+        [(ngModel)]="rate"
+        (input)="onCheckChange($event)"
+        name="rate"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Consumption"
+        label-placement="stacked"
+        type="number"
+        placeholder="Enter Consumption"
+        [(ngModel)]="consumption"
+        (input)="onCheckChange($event)"
+        name="consumption"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+        label="Total"
+        label-placement="stacked"
+        type="number"
+        placeholder="Total"
+        [(ngModel)]="total"
+        name="total"
+        [readonly]="true"
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button expand="block" color="primary" (click)="setBill()">
+        Submit
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</div>

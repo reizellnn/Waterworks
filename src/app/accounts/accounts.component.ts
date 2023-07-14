@@ -17,7 +17,7 @@ export class AccountsComponent implements OnInit {
   constructor(private router: Router, private dataService: DataService) {}
 
   viewTransactions(user: any) {
-    this.dataService.selectedUser = user;
+    localStorage.setItem('selectedID', user.id);
     this.router.navigateByUrl('/transaction-list');
   }
 

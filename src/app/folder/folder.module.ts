@@ -19,6 +19,7 @@ import { BillsComponent } from '../bills/bills.component';
 import { TransactionsComponent } from '../transactions/transactions.component';
 
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { SetBillComponent } from '../set-bill/set-bill.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, FolderPageRoutingModule],
@@ -29,6 +30,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     BillsComponent,
     TransactionsComponent,
     DashboardComponent,
+    SetBillComponent,
   ],
 })
 export class FolderPageModule {}

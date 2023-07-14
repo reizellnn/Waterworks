@@ -36,17 +36,22 @@ export class TransactionsComponent implements OnInit {
   searchTerm: string = '';
 
   handleInput(event: any) {
-    //loop every ion-label, get all tags and check if it contains the search term
+    //Kunin lahat ng transacations na naka display sa HTML
     const labels = Array.from(document.querySelectorAll('.transaction-label'));
+
+    //Isa isa silang i-check ang transactions
     labels.forEach((label) => {
+      //kunin lahat ng text sa loob ng transactions
       const item = label.parentElement;
+      //pag walang input dun sa search ay hindi matutuloy ang search
       if (item == null || label.textContent == null) {
         return;
       }
+      //pero kungtuloy ay icheck kung may match sa search
       if (label.textContent.toLowerCase().indexOf(event.target.value) > -1) {
-        item.style.display = 'block';
+        item.style.display = 'block'; //lahat ng match ay ishow
       } else {
-        item.style.display = 'none';
+        item.style.display = 'none'; //lahat ng hindi match ay itago
       }
     });
   }
