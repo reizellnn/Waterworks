@@ -251,6 +251,7 @@ export class DataService {
               this.users[i].transactions[j].consumption;
             transactions.previousConsumption =
               this.users[i].transactions[j - 1].consumption;
+
             transactions.date = this.users[i].transactions[j].date;
             let date = new Date(this.users[i].transactions[j].date);
             date.setDate(date.getDate() + 14);
@@ -286,5 +287,15 @@ export class DataService {
       }
     }
     return user;
+  }
+  darkMode: boolean = false;
+  toggleDarkMode(isChecked: boolean) {
+    this.darkMode = isChecked;
+    localStorage.setItem('darkMode', this.darkMode.toString());
+    if (this.darkMode) {
+      document.body.setAttribute('color-theme', 'dark');
+    } else {
+      document.body.removeAttribute('color-theme');
+    }
   }
 }

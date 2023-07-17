@@ -22,6 +22,10 @@ export class LoginPage implements OnInit {
         this.router.navigate(['/folder/dashboard']);
       }
     }
+
+    if (localStorage.getItem('darkMode') == 'true') {
+      this.dataService.toggleDarkMode(true);
+    }
   }
 
   errorMessages: string = '';

@@ -3,51 +3,45 @@
 <section class="home__section">
     <div class="content">
         <div class="card">
-            <ng-container *ngIf="balance">
+            <ng-container *ngIf="haveBalance">
                 <p class="current__text">Current amount due</p>
                 <h1 class="current__amount">
                     &#8369; {{ balance.amount.toFixed(2) }}
                 </h1>
-                <div class="other__info">
-                    <p class="other__info__text">
-                        Date:
-                        <br />
-                        <span class="other__info__date">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            Date:
+                            <br />
                             {{ balance.date }}
-                        </span>
-                    </p>
-                    <p class="other__info__text">
-                        Consumption:
-                        <br />
-                        <span class="other__info__date">
+                        </ion-col>
+                        <ion-col>
+                            Consumption:
+                            <br />
                             {{ balance.consumption }} cu.m
-                        </span>
-                    </p>
-                </div>
-                <div class="last__consumption">
-                    <p class="rate__text">
-                        Rate
-                        <br />
-                        <span class="rate__price">
-                            &#8369; {{ balance.rate }} / cu.m
-                        </span>
-                    </p>
-                    <p class="last__consumption__text">
-                        Due Date
-                        <br />
-                        <span class="last__consumption__price">
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col>
+                            Rate:
+                            <br />
+                            &#8369;{{ balance.rate }} / cu.m
+                        </ion-col>
+                        <ion-col>
+                            Due Date:
+                            <br />
                             {{ getUpdatedDate(balance.date, 14) }}
-                        </span>
-                    </p>
-                </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
             </ng-container>
-            <ng-container *ngIf="balance">
+            <ng-container *ngIf="!haveBalance">
                 <p class="no-balance__text">All bills are settled.</p>
             </ng-container>
         </div>
 
-        <hr color="dark" />
-        <h3 class="title">Latest Transactions</h3>
+        <hr />
+        <h3 class="title">Recent Transactions</h3>
         <div class="latest__transactions">
             <div
                 *ngFor="let transaction of transactions.reverse()"

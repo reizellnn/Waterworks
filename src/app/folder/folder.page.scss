@@ -1,9 +1,14 @@
 /** @format */
-
-ion-menu-button {
-    color: var(--ion-color-primary);
+ion-toolbar {
+  --background: #6527be;
+  ion-menu-button {
+    color: #fff;
+  }
+  ion-title {
+    color: #fff;
+  }
 }
 
 ion-title {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }

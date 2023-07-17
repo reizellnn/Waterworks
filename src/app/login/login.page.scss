@@ -19,7 +19,7 @@ section.main__container {
     bottom: 0;
     z-index: 1;
     width: 100%;
-    background-color: #ffffff;
+    background-color: var(--ion-background-color);
     border-radius: 20px 20px 0 0;
     padding: 40px 20px;
     box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.1);
@@ -50,10 +50,10 @@ section.main__container {
       .forgot__password {
         margin-bottom: 20px;
         text-align: right;
-        a {
+        p {
           font-size: 0.8rem;
           font-weight: 400;
-          color: #6527be;
+          color: var(-ion-text-color) !important;
           text-decoration: none;
         }
       }
@@ -69,6 +69,12 @@ section.main__container {
         align-items: center;
         flex-direction: column;
         gap: 20px;
+      }
+      ion-input {
+        --background: var(--ion-background-color-2);
+      }
+      ion-router-link {
+        color: var(-ion-text-color) !important;
       }
     }
   }

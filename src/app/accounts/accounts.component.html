@@ -1,13 +1,20 @@
-<!-- @format -->
-
 <ion-list>
-    <ion-item>
-        <ion-searchbar (ionInput)="handleInput($event)"></ion-searchbar>
-    </ion-item>
-    <ion-item *ngFor="let user of users">
-        <ion-label class="account-label">{{ user.name }}</ion-label>
-        <ion-button (click)="viewTransactions(user)">
-            View Transactions
-        </ion-button>
-    </ion-item>
+  <ion-item>
+    <ion-searchbar (ionInput)="handleInput($event)"></ion-searchbar>
+  </ion-item>
+  <ion-item lines="none">
+    <table>
+      <tr
+        *ngFor="let user of users; let i = index"
+        [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }"
+      >
+        <td class="account-label">
+          {{ user.name }}
+          <ion-button size="small" (click)="viewTransactions(user)"
+            >View</ion-button
+          >
+        </td>
+      </tr>
+    </table>
+  </ion-item>
 </ion-list>

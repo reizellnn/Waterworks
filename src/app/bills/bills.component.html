@@ -1,57 +1,109 @@
-<div class="water-bill" *ngIf="unpaidBills">
-  <div class="bill-header">
-    <h1 class="bill-header__title">Water Bill</h1>
-    <p class="bill-header__address">Address:</p>
-    <p class="bill-header__contact">Contact:</p>
-  </div>
-  <table class="bill-table" border="1">
-    <thead>
-      <tr>
-        <th colspan="5">Statement of Account</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>Bill Date</th>
-        <th>Due Date</th>
-        <th colspan="2">Consumption</th>
-        <th rowspan="2">Amount</th>
-      </tr>
-      <tr>
-        <td rowspan="2">{{ unpaidBills.date }}</td>
-        <td rowspan="2">{{ unpaidBills.dueDate }}</td>
-        <th>Previous Reading</th>
-        <th>Current Reading</th>
-      </tr>
-      <tr>
-        <td>{{ unpaidBills.previousConsumption }}</td>
-        <td>{{ unpaidBills.currentConsumption }}</td>
-        <td>{{ unpaidBills.currentAmount }}</td>
-      </tr>
-      <tr>
-        <th colspan="5">Summary</th>
-      </tr>
-      <tr>
-        <th colspan="2">Consumption</th>
-        <th>Amount</th>
-        <th>Rate</th>
-        <th>Total</th>
-      </tr>
-      <tr>
-        <td colspan="2">{{ unpaidBills.currentConsumption }}</td>
-        <td>{{ unpaidBills.currentAmount }}</td>
-        <td>{{ unpaidBills.rate }}</td>
-        <td>{{ unpaidBills.currentAmount }}</td>
-      </tr>
-      <tr>
-        <td colspan="5">
-          Please pay on or before the due date to avoid penalty.
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<div class="container">
+  <table border="1" class="table">
+    <tr>
+      <th colspan="8">
+        <h1 class="title">Barangay Waterworks System</h1>
+        <p class="subtitle">Water Service Billing</p>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <p class="name">Name</p>
+      </td>
+      <td colspan="5">
+        <p>{{ unpaidBills.name }}</p>
+      </td>
+      <td rowspan="6" class="note">
+        <p class="note">
+          If the payment is made after the due date a payment SURCHARGE will be
+          added to your bill/another 20% SURCHARGE will be added to your bill if
+          the payment is made AFTER EVER the month.
+        </p>
+        <p class="note">
+          Please pay on or before the DUE DATE to avoid disconnection of water
+          service.
+        </p>
+        <p class="note">Note: Payment is made during office hours only.</p>
+        <h4>MON-FRI 8:30am - 11:00am & 1:00pm - 4:00pm</h4>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3 class="month">Month</h3>
+      </td>
+      <td>
+        <p class="previous-read">Previous Consumption</p>
+      </td>
+      <td>
+        <p class="present-read">Present Consumption</p>
+      </td>
 
-<div class="water-bill" *ngIf="unpaidBills == null">
-  <h3 class="water-bill__no-bill">All bills are paid.</h3>
+      <td>
+        <p class="rate">Rate</p>
+      </td>
+      <td>
+        <p class="amount">Amount</p>
+      </td>
+      <td total>
+        <p class="total-amount">Total Amount</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="month-value">{{ unpaidBills.month }}</p>
+      </td>
+      <td>
+        <p class="prev-read">{{ unpaidBills.previousConsumption }}</p>
+      </td>
+      <td>
+        <p class="pres-read">{{ unpaidBills.currentConsumption }}</p>
+      </td>
+      <td>
+        <p class="rate">{{ unpaidBills.rate }}</p>
+      </td>
+      <td>
+        <p class="amount">{{ unpaidBills.currentAmount }}</p>
+      </td>
+      <td>
+        <p class="total-amount">{{ unpaidBills.currentAmount }}</p>
+      </td>
+    </tr>
+    <tr>
+      <td>&#8203;</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>&#8203;</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="5"><h5>Total Amount Due for Water Service</h5></td>
+      <td>
+        <h5 class="total-amount">{{ unpaidBills.currentAmount }}</h5>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <h6>{{ unpaidBills.name }}</h6>
+        <p>Brgy. Treasurer</p>
+      </td>
+      <td colspan="4">
+        <h6>{{ unpaidBills.name }}</h6>
+        <p>Brgy. Deputized Collector</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="8">
+        <h5>DUE DATE (NO PENALTY) - {{ unpaidBills.dueDate }}</h5>
+      </td>
+    </tr>
+  </table>
 </div>

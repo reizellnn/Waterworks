@@ -1,7 +1,14 @@
 .container {
-  padding: 10px;
-  ion-item {
-    width: 100%;
-    margin-bottom: 10px;
+  padding: 1rem;
+  .input-group {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    ion-select,
+    ion-datetime,
+    ion-input {
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      --background: var(--ion-background-color-2);
+    }
   }
 }

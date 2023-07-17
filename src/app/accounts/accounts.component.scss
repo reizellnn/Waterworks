@@ -1,0 +1,27 @@
+ion-searchbar {
+  padding: 10px 0 !important;
+}
+ion-item {
+  table {
+    width: 100%;
+    tr {
+      td {
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        display: flex;
+        padding: 10px 5px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+.even-row {
+  background-color: var(--even-color); /* Background color for even rows */
+  color: var(--ion-text-color); /* Text color for even rows */
+}
+
+.odd-row {
+  background-color: var(--odd-color); /* Background color for odd rows */
+  color: var(--ion-text-color); /* Text color for odd rows */
+}

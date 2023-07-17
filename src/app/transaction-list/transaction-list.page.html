@@ -11,25 +11,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <h3 class="title">Latest Transactions</h3>
-  <div class="latest__transactions">
-    <div
-      *ngFor="let transaction of transactions.reverse()"
-      class="latest__transaction"
-    >
-      <h5 [ngClass]="{ 'failed-transaction': transaction.failed }">
-        {{ transaction.title }}
-      </h5>
-      <div class="amount">
-        <h6>{{ transaction.date }}</h6>
-        <p>&#8369; {{ transaction.amount }}</p>
-      </div>
-      <ion-button
-        *ngIf="transaction.title !== 'Payment Successful'"
-        (click)="confirmPayment(transaction)"
+  <div class="container">
+    <h3 class="title">Latest Transactions</h3>
+    <div class="latest__transactions">
+      <div
+        *ngFor="let transaction of transactions.reverse()"
+        class="latest__transaction"
       >
-        Confirm Payment
-      </ion-button>
+        <h5 [ngClass]="{ 'failed-transaction': transaction.failed }">
+          {{ transaction.title }}
+        </h5>
+        <div class="amount">
+          <h6>{{ transaction.date }}</h6>
+          <p>&#8369; {{ transaction.amount }}</p>
+        </div>
+        <ion-button
+          *ngIf="transaction.title !== 'Payment Successful'"
+          (click)="confirmPayment(transaction)"
+        >
+          Confirm Payment
+        </ion-button>
+      </div>
     </div>
   </div>
 </ion-content>

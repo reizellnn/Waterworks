@@ -8,8 +8,6 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./set-bill.component.scss'],
 })
 export class SetBillComponent implements OnInit {
-  // Get the ion-select element
-  //after viweing of the
   ngOnInit() {
     this.getInfo();
   }

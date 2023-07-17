@@ -19,15 +19,23 @@ export class AppComponent {
       }
     });
   }
+  darkMode: boolean = false;
+  toggleDarkMode(isChecked: boolean) {
+    this.dataService.toggleDarkMode(isChecked);
+  }
 
   ngOnInit() {
-    this.updateAppPages();
-
     let userID = localStorage.getItem('userId')?.toString();
 
     if (userID) {
       this.user = this.dataService.getUserDetails(userID);
     }
+
+    if (localStorage.getItem('darkMode') == 'true') {
+      this.dataService.toggleDarkMode(true);
+      this.darkMode = true;
+    }
+    this.updateAppPages();
   }
 
   updateAppPages() {
@@ -61,7 +69,9 @@ export class AppComponent {
   }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('userId');
+    localStorage.removeItem('userType');
+    localStorage.removeItem('showAlert');
     this.router.navigate(['/login']);
   }
 }

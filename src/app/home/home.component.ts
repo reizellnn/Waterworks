@@ -12,15 +12,19 @@ export class HomeComponent implements OnInit {
   transactions: any[] = [];
 
   balance: any = {};
+  haveBalance: boolean = false;
 
   constructor(private dataService: DataService) {
     let userID = localStorage.getItem('userId')?.toString();
 
     if (userID) {
       this.balance = this.dataService.getBalance(userID);
+
+      this.haveBalance = Object.keys(this.balance).length > 0;
+      console.log(this.balance != null);
     }
 
-    console.log(this.balance);
+    console.log(this.balance, 'ywaw');
   }
 
   ngOnInit() {
