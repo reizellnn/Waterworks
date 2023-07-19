@@ -129,11 +129,95 @@ export class DataService {
         },
       ],
     },
+    {
+      id: 'WWMS00004',
+      name: 'Joshua Abella',
+      username: 'joshua',
+      contact: '+1234567890',
+      password: 'joshua',
+      transactions: [
+        {
+          title: 'Payment Successful',
+          date: '2023-04-01',
+          consumption: 120,
+          rate: 20.3,
+          amount: 2436,
+          paymentDate: '2023-04-15',
+        },
+        {
+          title: 'Payment Successful',
+          date: '2023-05-01',
+          consumption: 90,
+          rate: 20.3,
+          amount: 1827,
+          paymentDate: '2023-05-15',
+        },
+        {
+          title: 'Payment Successful',
+          date: '2023-06-01',
+          consumption: 100,
+          rate: 20.3,
+          amount: 2030,
+          paymentDate: '2023-06-15',
+        },
+      ],
+    },
+    {
+      id: 'WWMS00005',
+      name: 'Robert Atienza',
+      username: 'robert',
+      contact: '+9876543210',
+      password: 'robert',
+      transactions: [
+        {
+          title: 'Payment Successful',
+          date: '2023-04-01',
+          consumption: 50,
+          rate: 20.3,
+          amount: 1015,
+          paymentDate: '2023-04-15',
+        },
+        {
+          title: 'Payment Successful',
+          date: '2023-05-01',
+          consumption: 80,
+          rate: 20.3,
+          amount: 1624,
+          paymentDate: '2023-05-15',
+        },
+        {
+          title: 'Payment Successful',
+          date: '2023-06-01',
+          consumption: 70,
+          rate: 20.3,
+          amount: 1416.5,
+          paymentDate: '2023-06-15',
+        },
+        {
+          title: 'Not Paid',
+          date: '2023-07-01',
+          consumption: 85,
+          rate: 20.3,
+          amount: 1725.5,
+          paymentDate: '',
+        },
+      ],
+    },
   ];
 
   public selectedUser: any = null;
 
   constructor() {}
+
+  getStaffDetails(userId: string) {
+    let user: any = {};
+    for (let i = 0; i < this.admin.length; i++) {
+      if (this.admin[i].id == userId) {
+        user = this.admin[i];
+      }
+    }
+    return user;
+  }
 
   signup(email: string, password: string, name: string, contact: string) {
     let id = 'WWMS' + (this.users.length + 1).toString().padStart(5, '0');
