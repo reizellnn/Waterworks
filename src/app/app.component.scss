@@ -41,6 +41,16 @@ ion-menu.md ion-list#inbox-list {
   border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
 }
 
+ion-note {
+  font-size: 18px !important;
+  color: #fff !important;
+}
+
+ion-list-header {
+  font-size: 24px !important;
+  color: #fff !important;
+}
+
 ion-menu.md ion-list#inbox-list ion-list-header {
   font-size: 22px;
   font-weight: 600;

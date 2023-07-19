@@ -1,64 +1,60 @@
 <!-- @format -->
 
 <section class="home__section">
-    <div class="content">
-        <div class="card">
-            <ng-container *ngIf="haveBalance">
-                <p class="current__text">Current amount due</p>
-                <h1 class="current__amount">
-                    &#8369; {{ balance.amount.toFixed(2) }}
-                </h1>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col>
-                            Date:
-                            <br />
-                            {{ balance.date }}
-                        </ion-col>
-                        <ion-col>
-                            Consumption:
-                            <br />
-                            {{ balance.consumption }} cu.m
-                        </ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col>
-                            Rate:
-                            <br />
-                            &#8369;{{ balance.rate }} / cu.m
-                        </ion-col>
-                        <ion-col>
-                            Due Date:
-                            <br />
-                            {{ getUpdatedDate(balance.date, 14) }}
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-            </ng-container>
-            <ng-container *ngIf="!haveBalance">
-                <p class="no-balance__text">All bills are settled.</p>
-            </ng-container>
-        </div>
-
-        <hr />
-        <h3 class="title">Recent Transactions</h3>
-        <div class="latest__transactions">
-            <div
-                *ngFor="let transaction of transactions.reverse()"
-                class="latest__transaction">
-                <h5
-                    [ngClass]="{
-                        successful: transaction.title === 'Payment Successful',
-                        failed: transaction.title === 'Failed',
-                        'not-paid': transaction.title === 'Not Paid'
-                    }">
-                    {{ transaction.title }}
-                </h5>
-                <div class="amount">
-                    <h6>{{ formatDate(transaction.date) }}</h6>
-                    <p>&#8369; {{ transaction.amount }}</p>
-                </div>
-            </div>
-        </div>
+  <div class="content">
+    <div class="card">
+      <ng-container *ngIf="haveBalance">
+        <p class="current__text">Current amount due</p>
+        <h1 class="current__amount">&#8369; {{ balance.amount.toFixed(2) }}</h1>
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              >Date: <br />
+              {{ balance.date }}
+            </ion-col>
+            <ion-col
+              >Consumption: <br />
+              {{ balance.consumption }} cu.m
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col
+              >Rate: <br />
+              &#8369;{{ balance.rate }} / cu.m
+            </ion-col>
+            <ion-col
+              >Due Date: <br />
+              {{ getUpdatedDate(balance.date, 14) }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ng-container>
+      <ng-container *ngIf="!haveBalance">
+        <p class="no-balance__text">All bills are settled.</p>
+      </ng-container>
     </div>
+
+    <hr />
+    <h3 class="title">Recent Transactions</h3>
+    <div class="latest__transactions">
+      <div
+        *ngFor="let transaction of transactions.reverse()"
+        class="latest__transaction"
+      >
+        <h5
+          [ngClass]="{
+            successful: transaction.title === 'Payment Successful',
+            failed: transaction.title === 'Failed',
+            'not-paid': transaction.title === 'Not Paid'
+          }"
+        >
+          {{ transaction.title }}
+        </h5>
+        <div class="amount">
+          <h6>{{ formatDate(transaction.date) }}</h6>
+          <p>&#8369; {{ transaction.amount }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -25,20 +25,24 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    let userID = localStorage.getItem('userId')?.toString();
+    this.updateAppPages();
+  }
 
+  updateAppPages() {
+    let userID = localStorage.getItem('userId')?.toString();
+    let userType = localStorage.getItem('userType')?.toString();
     if (userID) {
-      this.user = this.dataService.getUserDetails(userID);
+      if (userType == 'staff') {
+        this.user = this.dataService.getStaffDetails(userID);
+      } else {
+        this.user = this.dataService.getUserDetails(userID);
+      }
     }
 
     if (localStorage.getItem('darkMode') == 'true') {
       this.dataService.toggleDarkMode(true);
       this.darkMode = true;
     }
-    this.updateAppPages();
-  }
-
-  updateAppPages() {
     if (localStorage.getItem('userType') === 'staff') {
       this.appPages = [
         { title: 'Dashboard', url: '/folder/dashboard', icon: 'analytics' },
