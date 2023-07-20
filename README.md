@@ -16,6 +16,7 @@ To achieve its objectives, the app enables customers to monitor and track their 
 * Ionic Framework
 * Angular
 * Visual Studio Code
+* GitHub
   
 ## Team
 * Almario, Mark Andrew D.
